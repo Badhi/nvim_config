@@ -70,9 +70,18 @@ syntax enable
 let g:tokyonight_style = "night"
 colorscheme tokyonight
 
+" Airline theme configurations
 let g:airline_theme='dracula'
 
-set cursorline 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffers_label = '﬘'
+let g:airline#extensions#tabline#tabs_label = ''
+let g:airline#extensions#tabline#show_tab_count = 0
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+set cursorline
 
 hi CursorLine   cterm=NONE ctermbg=238 ctermfg=None guibg=Grey11 guifg=None
 autocmd InsertEnter <buffer> highlight  CursorLine ctermbg=238 ctermfg=None guibg=DarkGreen
@@ -83,10 +92,8 @@ set number relativenumber
 
 let g:indentLine_char_list = ['|']
 
-
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_auto_trigger=0
-
 
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list=['exact', 'substring', 'fuzzy']
@@ -99,6 +106,11 @@ let g:markdown_fenced_languages = [
       \ 'vim',
       \ 'help'
       \]
+
+sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=
+sign define LspDiagnosticsSignWarning text= texthl=LspDiagnosticsSignWarning linehl= numhl=
+sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=
+sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=
 
 lua << EOF
 require'bhashitha_init'.setup()

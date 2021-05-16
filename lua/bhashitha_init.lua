@@ -9,13 +9,12 @@ lsp_status.config({
     kind_labels = {
         Function = '',
     },
-    status_symbol = '⚡',
+    status_symbol = '',
 	indicator_errors = '',
-	indicator_warnings = '',
+	indicator_warnings = '',
 	indicator_info = '',
 	indicator_hint = '',
 	indicator_ok = '',
-    --spinner_frames = {'', '', '', '', '', '', '', '', '', '', '', ''},
     spinner_frames = {'', '', '', '', '', '', '', '', '', '',
                       '', '', '', '', '', '', '', '', '', '',
                       '', '', '', '', '', '', '', ''},
@@ -83,8 +82,8 @@ require'lspconfig'.vimls.setup{
 vim.lsp.set_log_level("error")
 
 require("trouble").setup {
-	action_keys = { -- key mappings for actions in the trouble list
-		close = "q", -- close the list
+    action_keys = { -- key mappings for actions in the trouble list
+        close = "q", -- close the list
         cancel = "<esc>", -- cancel the preview and get back to your last window / buffer / cursor
         refresh = "r", -- manually refresh
         jump = {"<cr>", "<tab>"}, -- jump to the diagnostic or open / close folds
@@ -99,7 +98,17 @@ require("trouble").setup {
         previous = "k", -- preview item
         next = "j" -- next item
     },
-  }
+    signs = {
+        Errors = '',
+        Warnings = '',
+        Info = '',
+        Hint = '',
+        Other = '',
+    },
+    use_lsp_diagnostic_signs = false,
+}
+
+vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
 
 end
 
