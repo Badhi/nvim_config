@@ -58,8 +58,8 @@ call plug#end()
 "set expandtab
 
 set termguicolors
-set guifont=Caskaydia\ Cove\ Nerd\ Font\ Complete\ 10
-set encoding=utf8
+"set guifont=Caskaydia\ Cove\ Nerd\ Font\ Complete\ 10
+"set encoding=utf8
 let g:airline_powerline_fonts = 1
 
 " Theme

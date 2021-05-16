@@ -9,7 +9,7 @@ lsp_status.config({
     kind_labels = {
         Function = '',
     },
-    status_symbol = '',
+    status_symbol = '- ',
 	indicator_errors = '',
 	indicator_warnings = '',
 	indicator_info = '',
